@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>40-Day Gospel Parables Reading Plan</title>
+  <style>
+    :root {
+      --burgundy: #6f1d1b;
+      --gold: #b68d40;
+      --cream: #fffaf0;
+      --ink: #24211d;
+      --soft: #f4ead6;
+      --line: #d8c6a3;
+      --green: #396b3b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(182,141,64,0.18), transparent 32rem),
+        linear-gradient(180deg, #fffdf8, var(--cream));
+      line-height: 1.45;
+    }
+    .page {
+      max-width: 1180px;
+      margin: 28px auto;
+      padding: 36px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(40, 25, 10, 0.12);
+    }
+    header {
+      text-align: center;
+      border: 3px double var(--gold);
+      padding: 28px 22px 24px;
+      margin-bottom: 22px;
+      background: linear-gradient(180deg, #fffaf0, #fffdf9);
+    }
+    .cross { color: var(--burgundy); font-size: 34px; letter-spacing: 12px; margin-bottom: 4px; }
+    h1 { margin: 0; color: var(--burgundy); font-size: 34px; line-height: 1.1; letter-spacing: 0.5px; }
+    .subtitle { margin: 10px auto 0; max-width: 780px; color: #5c5144; font-size: 17px; }
+    .quote { margin: 18px auto 0; max-width: 650px; font-style: italic; color: #3d352c; }
+    .section { margin: 22px 0; padding: 18px 22px; background: var(--soft); border-left: 5px solid var(--gold); }
+    .section h2 { margin: 0 0 8px; color: var(--burgundy); font-size: 20px; }
+    .section p { margin: 8px 0; }
+    .progress-box {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin: 18px 0 6px; padding: 12px 14px; border: 1px solid var(--line);
+      background: #fffdf8; border-radius: 8px; font-family: Arial, sans-serif; font-size: 14px;
+    }
+    .progress-bar { flex: 1; height: 12px; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: #fff; }
+    .progress-fill { width: 0%; height: 100%; background: var(--gold); transition: width 0.2s ease; }
+    .storage-status { margin: 8px 0 0; font-family: Arial, sans-serif; font-size: 13px; color: #5f5548; }
+    .button-row { display: flex; justify-content: flex-end; gap: 8px; margin: 8px 0 0; flex-wrap: wrap; }
+    button { border: 1px solid var(--gold); background: #fffaf0; color: var(--burgundy); border-radius: 6px; padding: 6px 10px; cursor: pointer; font-family: Arial, sans-serif; font-size: 13px; }
+    button:hover { background: #f4ead6; }
+    .table-wrap { overflow-x: auto; margin-top: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border: 1px solid var(--line); }
+    thead th { background: var(--burgundy); color: #fffdf8; text-align: left; padding: 10px 9px; font-weight: normal; letter-spacing: 0.3px; }
+    tbody td { border-top: 1px solid var(--line); padding: 8px 9px; vertical-align: middle; }
+    tbody tr:nth-child(even) { background: #fffaf0; }
+    tbody tr.completed { background: #f0f6ed; }
+    tbody tr.completed .title, tbody tr.completed .passage { text-decoration: line-through; color: #66715f; }
+    .day { width: 42px; text-align: center; font-weight: bold; color: var(--burgundy); }
+    .done { width: 58px; text-align: center; }
+    .title { font-weight: bold; min-width: 210px; }
+    .passage { min-width: 230px; }
+    .passage a { color: #234f80; text-decoration: none; border-bottom: 1px dotted #234f80; }
+    .passage a:hover { color: var(--burgundy); border-bottom-color: var(--burgundy); }
+    input[type="checkbox"] { width: 22px; height: 22px; accent-color: var(--green); cursor: pointer; }
+    .notes-cell { width: 32%; min-width: 260px; }
+    textarea.note-field {
+      width: 100%; min-height: 54px; resize: vertical; padding: 7px 8px;
+      border: 1px solid var(--line); border-radius: 6px; font-family: Arial, sans-serif;
+      font-size: 13.5px; line-height: 1.35; background: #fffdf8; color: var(--ink);
+    }
+    textarea.note-field:focus { outline: 2px solid rgba(182, 141, 64, 0.35); border-color: var(--gold); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .footnote { font-size: 13.5px; color: #5f5548; margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
+    footer { text-align: center; margin-top: 26px; font-size: 13.5px; color: #6a5d4d; }
+    @media print {
+      body { background: white; }
+      .page { margin: 0; padding: 14px; box-shadow: none; border: none; max-width: none; }
+      header { padding: 14px 10px; }
+      h1 { font-size: 24px; }
+      .subtitle, .quote { font-size: 12px; }
+      .section { padding: 8px 12px; margin: 10px 0; }
+      .progress-box, .button-row, .storage-status { display: none; }
+      .table-wrap { overflow: visible; }
+      table { font-size: 10.4px; margin-top: 10px; }
+      tbody td, thead th { padding: 4px 5px; }
+      input[type="checkbox"] { width: 13px; height: 13px; accent-color: auto; }
+      textarea.note-field { min-height: 34px; font-size: 10px; border: 1px solid #999; background: white; }
+      a { color: black; text-decoration: none; border-bottom: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="cross">✠ ✠ ✠</div>
+      <h1>40-Day Gospel Parables Reading Plan</h1>
+      <p class="subtitle">A Catholic-themed daily reading plan arranged in approximate chronological order according to Jesus’ public ministry.</p>
+      <p class="quote">“He who has ears, let him hear.” — Matthew 13:9</p>
+    </header>
+
+    <section class="section">
+      <h2>How to Use This Plan</h2>
+      <p>Each day, read the passage slowly in the <strong>New Revised Standard Version Catholic Edition</strong>. Ask: <em>What does this reveal about God?</em> Then ask: <em>What does this reveal about my own heart?</em></p>
+      <p>Close with a short prayer: <em>Lord Jesus, give me ears to hear, a heart ready to repent, and the grace to live what You teach. Amen.</em></p>
+    </section>
+
+    <div class="progress-box" aria-live="polite">
+      <strong id="progress-text">0 of 40 completed</strong>
+      <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <p class="storage-status" id="storage-status">Checking whether this browser can save progress...</p>
+    <div class="button-row">
+      <button type="button" id="reset-checkmarks">Reset checkmarks</button>
+      <button type="button" id="clear-notes">Clear notes</button>
+      <button type="button" id="clear-all">Clear everything</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th><th>Done</th><th>Parable / Teaching Story</th><th>Bible Gateway NRSVCE Passage</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr data-day="1">
+        <td class="day">1</td>
+        <td class="done">
+          <label for="day-1">
+            <input type="checkbox" id="day-1" class="reading-check" data-day="1">
+            <span class="sr-only">Mark day 1 complete</span>
+          </label>
+        </td>
+        <td class="title">New Cloth on Old Garment / New Wine in Old Wineskins</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+9%3A16-17%3B+Mark+2%3A21-22%3B+Luke+5%3A36-39&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 9:16-17; Mark 2:21-22; Luke 5:36-39</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="1" aria-label="Notes for day 1" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="2">
+        <td class="day">2</td>
+        <td class="done">
+          <label for="day-2">
+            <input type="checkbox" id="day-2" class="reading-check" data-day="2">
+            <span class="sr-only">Mark day 2 complete</span>
+          </label>
+        </td>
+        <td class="title">The Wise and Foolish Builders</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+7%3A24-27%3B+Luke+6%3A46-49&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 7:24-27; Luke 6:46-49</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="2" aria-label="Notes for day 2" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="3">
+        <td class="day">3</td>
+        <td class="done">
+          <label for="day-3">
+            <input type="checkbox" id="day-3" class="reading-check" data-day="3">
+            <span class="sr-only">Mark day 3 complete</span>
+          </label>
+        </td>
+        <td class="title">The Two Debtors</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+7%3A36-50&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 7:36-50</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="3" aria-label="Notes for day 3" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="4">
+        <td class="day">4</td>
+        <td class="done">
+          <label for="day-4">
+            <input type="checkbox" id="day-4" class="reading-check" data-day="4">
+            <span class="sr-only">Mark day 4 complete</span>
+          </label>
+        </td>
+        <td class="title">The Sower</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A1-23%3B+Mark+4%3A1-20%3B+Luke+8%3A4-15&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:1-23; Mark 4:1-20; Luke 8:4-15</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="4" aria-label="Notes for day 4" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="5">
+        <td class="day">5</td>
+        <td class="done">
+          <label for="day-5">
+            <input type="checkbox" id="day-5" class="reading-check" data-day="5">
+            <span class="sr-only">Mark day 5 complete</span>
+          </label>
+        </td>
+        <td class="title">The Lamp Under a Basket</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Mark+4%3A21-25%3B+Luke+8%3A16-18&version=NRSVCE" target="_blank" rel="noopener noreferrer">Mark 4:21-25; Luke 8:16-18</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="5" aria-label="Notes for day 5" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="6">
+        <td class="day">6</td>
+        <td class="done">
+          <label for="day-6">
+            <input type="checkbox" id="day-6" class="reading-check" data-day="6">
+            <span class="sr-only">Mark day 6 complete</span>
+          </label>
+        </td>
+        <td class="title">The Growing Seed</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Mark+4%3A26-29&version=NRSVCE" target="_blank" rel="noopener noreferrer">Mark 4:26-29</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="6" aria-label="Notes for day 6" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="7">
+        <td class="day">7</td>
+        <td class="done">
+          <label for="day-7">
+            <input type="checkbox" id="day-7" class="reading-check" data-day="7">
+            <span class="sr-only">Mark day 7 complete</span>
+          </label>
+        </td>
+        <td class="title">The Wheat and the Weeds</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A24-30%2C+36-43&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:24-30, 36-43</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="7" aria-label="Notes for day 7" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="8">
+        <td class="day">8</td>
+        <td class="done">
+          <label for="day-8">
+            <input type="checkbox" id="day-8" class="reading-check" data-day="8">
+            <span class="sr-only">Mark day 8 complete</span>
+          </label>
+        </td>
+        <td class="title">The Mustard Seed</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A31-32%3B+Mark+4%3A30-32%3B+Luke+13%3A18-19&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:31-32; Mark 4:30-32; Luke 13:18-19</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="8" aria-label="Notes for day 8" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="9">
+        <td class="day">9</td>
+        <td class="done">
+          <label for="day-9">
+            <input type="checkbox" id="day-9" class="reading-check" data-day="9">
+            <span class="sr-only">Mark day 9 complete</span>
+          </label>
+        </td>
+        <td class="title">The Leaven</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A33%3B+Luke+13%3A20-21&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:33; Luke 13:20-21</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="9" aria-label="Notes for day 9" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="10">
+        <td class="day">10</td>
+        <td class="done">
+          <label for="day-10">
+            <input type="checkbox" id="day-10" class="reading-check" data-day="10">
+            <span class="sr-only">Mark day 10 complete</span>
+          </label>
+        </td>
+        <td class="title">The Hidden Treasure</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A44&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:44</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="10" aria-label="Notes for day 10" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="11">
+        <td class="day">11</td>
+        <td class="done">
+          <label for="day-11">
+            <input type="checkbox" id="day-11" class="reading-check" data-day="11">
+            <span class="sr-only">Mark day 11 complete</span>
+          </label>
+        </td>
+        <td class="title">The Pearl of Great Price</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A45-46&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:45-46</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="11" aria-label="Notes for day 11" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="12">
+        <td class="day">12</td>
+        <td class="done">
+          <label for="day-12">
+            <input type="checkbox" id="day-12" class="reading-check" data-day="12">
+            <span class="sr-only">Mark day 12 complete</span>
+          </label>
+        </td>
+        <td class="title">The Net</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+13%3A47-50&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 13:47-50</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="12" aria-label="Notes for day 12" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="13">
+        <td class="day">13</td>
+        <td class="done">
+          <label for="day-13">
+            <input type="checkbox" id="day-13" class="reading-check" data-day="13">
+            <span class="sr-only">Mark day 13 complete</span>
+          </label>
+        </td>
+        <td class="title">The Lost Sheep</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+18%3A10-14%3B+Luke+15%3A3-7&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 18:10-14; Luke 15:3-7</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="13" aria-label="Notes for day 13" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="14">
+        <td class="day">14</td>
+        <td class="done">
+          <label for="day-14">
+            <input type="checkbox" id="day-14" class="reading-check" data-day="14">
+            <span class="sr-only">Mark day 14 complete</span>
+          </label>
+        </td>
+        <td class="title">The Unforgiving Servant</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+18%3A21-35&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 18:21-35</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="14" aria-label="Notes for day 14" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="15">
+        <td class="day">15</td>
+        <td class="done">
+          <label for="day-15">
+            <input type="checkbox" id="day-15" class="reading-check" data-day="15">
+            <span class="sr-only">Mark day 15 complete</span>
+          </label>
+        </td>
+        <td class="title">The Good Samaritan</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+10%3A25-37&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 10:25-37</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="15" aria-label="Notes for day 15" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="16">
+        <td class="day">16</td>
+        <td class="done">
+          <label for="day-16">
+            <input type="checkbox" id="day-16" class="reading-check" data-day="16">
+            <span class="sr-only">Mark day 16 complete</span>
+          </label>
+        </td>
+        <td class="title">The Friend at Midnight</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+11%3A5-13&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 11:5-13</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="16" aria-label="Notes for day 16" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="17">
+        <td class="day">17</td>
+        <td class="done">
+          <label for="day-17">
+            <input type="checkbox" id="day-17" class="reading-check" data-day="17">
+            <span class="sr-only">Mark day 17 complete</span>
+          </label>
+        </td>
+        <td class="title">The Rich Fool</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+12%3A13-21&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 12:13-21</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="17" aria-label="Notes for day 17" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="18">
+        <td class="day">18</td>
+        <td class="done">
+          <label for="day-18">
+            <input type="checkbox" id="day-18" class="reading-check" data-day="18">
+            <span class="sr-only">Mark day 18 complete</span>
+          </label>
+        </td>
+        <td class="title">The Faithful and Wicked Servants</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+24%3A45-51%3B+Luke+12%3A35-48&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 24:45-51; Luke 12:35-48</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="18" aria-label="Notes for day 18" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="19">
+        <td class="day">19</td>
+        <td class="done">
+          <label for="day-19">
+            <input type="checkbox" id="day-19" class="reading-check" data-day="19">
+            <span class="sr-only">Mark day 19 complete</span>
+          </label>
+        </td>
+        <td class="title">The Barren Fig Tree</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+13%3A6-9&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 13:6-9</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="19" aria-label="Notes for day 19" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="20">
+        <td class="day">20</td>
+        <td class="done">
+          <label for="day-20">
+            <input type="checkbox" id="day-20" class="reading-check" data-day="20">
+            <span class="sr-only">Mark day 20 complete</span>
+          </label>
+        </td>
+        <td class="title">The Good Shepherd</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=John+10%3A1-18&version=NRSVCE" target="_blank" rel="noopener noreferrer">John 10:1-18</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="20" aria-label="Notes for day 20" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="21">
+        <td class="day">21</td>
+        <td class="done">
+          <label for="day-21">
+            <input type="checkbox" id="day-21" class="reading-check" data-day="21">
+            <span class="sr-only">Mark day 21 complete</span>
+          </label>
+        </td>
+        <td class="title">The Great Banquet</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+14%3A15-24&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 14:15-24</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="21" aria-label="Notes for day 21" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="22">
+        <td class="day">22</td>
+        <td class="done">
+          <label for="day-22">
+            <input type="checkbox" id="day-22" class="reading-check" data-day="22">
+            <span class="sr-only">Mark day 22 complete</span>
+          </label>
+        </td>
+        <td class="title">Counting the Cost: Tower and King Going to War</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+14%3A25-33&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 14:25-33</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="22" aria-label="Notes for day 22" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="23">
+        <td class="day">23</td>
+        <td class="done">
+          <label for="day-23">
+            <input type="checkbox" id="day-23" class="reading-check" data-day="23">
+            <span class="sr-only">Mark day 23 complete</span>
+          </label>
+        </td>
+        <td class="title">The Lost Coin</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+15%3A8-10&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 15:8-10</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="23" aria-label="Notes for day 23" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="24">
+        <td class="day">24</td>
+        <td class="done">
+          <label for="day-24">
+            <input type="checkbox" id="day-24" class="reading-check" data-day="24">
+            <span class="sr-only">Mark day 24 complete</span>
+          </label>
+        </td>
+        <td class="title">The Prodigal Son</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+15%3A11-32&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 15:11-32</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="24" aria-label="Notes for day 24" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="25">
+        <td class="day">25</td>
+        <td class="done">
+          <label for="day-25">
+            <input type="checkbox" id="day-25" class="reading-check" data-day="25">
+            <span class="sr-only">Mark day 25 complete</span>
+          </label>
+        </td>
+        <td class="title">The Dishonest Manager</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+16%3A1-13&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 16:1-13</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="25" aria-label="Notes for day 25" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="26">
+        <td class="day">26</td>
+        <td class="done">
+          <label for="day-26">
+            <input type="checkbox" id="day-26" class="reading-check" data-day="26">
+            <span class="sr-only">Mark day 26 complete</span>
+          </label>
+        </td>
+        <td class="title">The Rich Man and Lazarus</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+16%3A19-31&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 16:19-31</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="26" aria-label="Notes for day 26" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="27">
+        <td class="day">27</td>
+        <td class="done">
+          <label for="day-27">
+            <input type="checkbox" id="day-27" class="reading-check" data-day="27">
+            <span class="sr-only">Mark day 27 complete</span>
+          </label>
+        </td>
+        <td class="title">The Unprofitable Servants</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+17%3A7-10&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 17:7-10</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="27" aria-label="Notes for day 27" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="28">
+        <td class="day">28</td>
+        <td class="done">
+          <label for="day-28">
+            <input type="checkbox" id="day-28" class="reading-check" data-day="28">
+            <span class="sr-only">Mark day 28 complete</span>
+          </label>
+        </td>
+        <td class="title">The Persistent Widow</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+18%3A1-8&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 18:1-8</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="28" aria-label="Notes for day 28" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="29">
+        <td class="day">29</td>
+        <td class="done">
+          <label for="day-29">
+            <input type="checkbox" id="day-29" class="reading-check" data-day="29">
+            <span class="sr-only">Mark day 29 complete</span>
+          </label>
+        </td>
+        <td class="title">The Pharisee and the Tax Collector</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+18%3A9-14&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 18:9-14</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="29" aria-label="Notes for day 29" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="30">
+        <td class="day">30</td>
+        <td class="done">
+          <label for="day-30">
+            <input type="checkbox" id="day-30" class="reading-check" data-day="30">
+            <span class="sr-only">Mark day 30 complete</span>
+          </label>
+        </td>
+        <td class="title">The Workers in the Vineyard</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+20%3A1-16&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 20:1-16</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="30" aria-label="Notes for day 30" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="31">
+        <td class="day">31</td>
+        <td class="done">
+          <label for="day-31">
+            <input type="checkbox" id="day-31" class="reading-check" data-day="31">
+            <span class="sr-only">Mark day 31 complete</span>
+          </label>
+        </td>
+        <td class="title">The Minas</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Luke+19%3A11-27&version=NRSVCE" target="_blank" rel="noopener noreferrer">Luke 19:11-27</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="31" aria-label="Notes for day 31" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="32">
+        <td class="day">32</td>
+        <td class="done">
+          <label for="day-32">
+            <input type="checkbox" id="day-32" class="reading-check" data-day="32">
+            <span class="sr-only">Mark day 32 complete</span>
+          </label>
+        </td>
+        <td class="title">The Two Sons</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+21%3A28-32&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 21:28-32</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="32" aria-label="Notes for day 32" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="33">
+        <td class="day">33</td>
+        <td class="done">
+          <label for="day-33">
+            <input type="checkbox" id="day-33" class="reading-check" data-day="33">
+            <span class="sr-only">Mark day 33 complete</span>
+          </label>
+        </td>
+        <td class="title">The Wicked Tenants</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+21%3A33-46%3B+Mark+12%3A1-12%3B+Luke+20%3A9-19&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 21:33-46; Mark 12:1-12; Luke 20:9-19</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="33" aria-label="Notes for day 33" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="34">
+        <td class="day">34</td>
+        <td class="done">
+          <label for="day-34">
+            <input type="checkbox" id="day-34" class="reading-check" data-day="34">
+            <span class="sr-only">Mark day 34 complete</span>
+          </label>
+        </td>
+        <td class="title">The Wedding Feast</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+22%3A1-14&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 22:1-14</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="34" aria-label="Notes for day 34" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="35">
+        <td class="day">35</td>
+        <td class="done">
+          <label for="day-35">
+            <input type="checkbox" id="day-35" class="reading-check" data-day="35">
+            <span class="sr-only">Mark day 35 complete</span>
+          </label>
+        </td>
+        <td class="title">The Fig Tree</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+24%3A32-35%3B+Mark+13%3A28-31%3B+Luke+21%3A29-33&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 24:32-35; Mark 13:28-31; Luke 21:29-33</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="35" aria-label="Notes for day 35" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="36">
+        <td class="day">36</td>
+        <td class="done">
+          <label for="day-36">
+            <input type="checkbox" id="day-36" class="reading-check" data-day="36">
+            <span class="sr-only">Mark day 36 complete</span>
+          </label>
+        </td>
+        <td class="title">The Watchful Servants</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Mark+13%3A33-37&version=NRSVCE" target="_blank" rel="noopener noreferrer">Mark 13:33-37</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="36" aria-label="Notes for day 36" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="37">
+        <td class="day">37</td>
+        <td class="done">
+          <label for="day-37">
+            <input type="checkbox" id="day-37" class="reading-check" data-day="37">
+            <span class="sr-only">Mark day 37 complete</span>
+          </label>
+        </td>
+        <td class="title">The Ten Virgins</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+25%3A1-13&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 25:1-13</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="37" aria-label="Notes for day 37" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="38">
+        <td class="day">38</td>
+        <td class="done">
+          <label for="day-38">
+            <input type="checkbox" id="day-38" class="reading-check" data-day="38">
+            <span class="sr-only">Mark day 38 complete</span>
+          </label>
+        </td>
+        <td class="title">The Talents</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+25%3A14-30&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 25:14-30</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="38" aria-label="Notes for day 38" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="39">
+        <td class="day">39</td>
+        <td class="done">
+          <label for="day-39">
+            <input type="checkbox" id="day-39" class="reading-check" data-day="39">
+            <span class="sr-only">Mark day 39 complete</span>
+          </label>
+        </td>
+        <td class="title">The Sheep and the Goats</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=Matthew+25%3A31-46&version=NRSVCE" target="_blank" rel="noopener noreferrer">Matthew 25:31-46</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="39" aria-label="Notes for day 39" placeholder="Add a note..."></textarea></td>
+      </tr>
+      <tr data-day="40">
+        <td class="day">40</td>
+        <td class="done">
+          <label for="day-40">
+            <input type="checkbox" id="day-40" class="reading-check" data-day="40">
+            <span class="sr-only">Mark day 40 complete</span>
+          </label>
+        </td>
+        <td class="title">The Vine and the Branches</td>
+        <td class="passage"><a href="https://www.biblegateway.com/passage/?search=John+15%3A1-8&version=NRSVCE" target="_blank" rel="noopener noreferrer">John 15:1-8</a></td>
+        <td class="notes-cell"><textarea class="note-field" data-day="40" aria-label="Notes for day 40" placeholder="Add a note..."></textarea></td>
+      </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="footnote"><strong>Note:</strong> The Rich Man and Lazarus is often grouped with the parables, though some Christians argue it may not technically be one because Lazarus is named. It remains included here because Jesus clearly uses it as a solemn teaching story about mercy, repentance, judgment, and hardness of heart.</p>
+    <footer>Approximate chronology only: the Gospels sometimes arrange material thematically rather than strictly by date. Progress and notes are saved locally in each visitor’s own browser, not to GitHub.</footer>
+  </main>
+
+  <script>
+    (function () {
+      const storageKey = "catholic-parables-reading-plan-v2";
+      const checkboxes = Array.from(document.querySelectorAll(".reading-check"));
+      const noteFields = Array.from(document.querySelectorAll(".note-field"));
+      const progressText = document.getElementById("progress-text");
+      const progressFill = document.getElementById("progress-fill");
+      const storageStatus = document.getElementById("storage-status");
+      const resetCheckmarksButton = document.getElementById("reset-checkmarks");
+      const clearNotesButton = document.getElementById("clear-notes");
+      const clearAllButton = document.getElementById("clear-all");
+
+      function storageWorks() {
+        try {
+          const testKey = storageKey + "-test";
+          localStorage.setItem(testKey, "test");
+          localStorage.removeItem(testKey);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      const canSave = storageWorks();
+
+      function defaultState() { return { completedDays: [], notes: {} }; }
+
+      function loadState() {
+        if (!canSave) return defaultState();
+        try {
+          const saved = JSON.parse(localStorage.getItem(storageKey)) || {};
+          return { completedDays: saved.completedDays || [], notes: saved.notes || {} };
+        } catch (error) {
+          return defaultState();
+        }
+      }
+
+      function saveState() {
+        if (!canSave) return;
+        localStorage.setItem(storageKey, JSON.stringify(state));
+      }
+
+      let state = loadState();
+
+      function updateStorageMessage() {
+        storageStatus.textContent = canSave
+          ? "Progress and notes are being saved in this browser. They should remain when you reopen this same GitHub Pages URL on this same device/browser."
+          : "This browser is blocking local storage, so progress and notes may not be saved after you leave the page.";
+      }
+
+      function updateProgress() {
+        const completedCount = state.completedDays.length;
+        progressText.textContent = completedCount + " of " + checkboxes.length + " completed";
+        progressFill.style.width = ((completedCount / checkboxes.length) * 100) + "%";
+      }
+
+      function applyStateToPage() {
+        checkboxes.forEach(box => {
+          box.checked = state.completedDays.includes(Number(box.dataset.day));
+          box.closest("tr").classList.toggle("completed", box.checked);
+        });
+        noteFields.forEach(field => { field.value = state.notes[field.dataset.day] || ""; });
+        updateProgress();
+        updateStorageMessage();
+      }
+
+      function collectStateFromPage() {
+        state.completedDays = checkboxes.filter(box => box.checked).map(box => Number(box.dataset.day));
+        state.notes = {};
+        noteFields.forEach(field => {
+          if (field.value.trim()) state.notes[field.dataset.day] = field.value;
+        });
+        checkboxes.forEach(box => box.closest("tr").classList.toggle("completed", box.checked));
+        updateProgress();
+        saveState();
+      }
+
+      checkboxes.forEach(box => box.addEventListener("change", collectStateFromPage));
+      noteFields.forEach(field => field.addEventListener("input", collectStateFromPage));
+      resetCheckmarksButton.addEventListener("click", function () {
+        checkboxes.forEach(box => box.checked = false);
+        collectStateFromPage();
+      });
+      clearNotesButton.addEventListener("click", function () {
+        noteFields.forEach(field => field.value = "");
+        collectStateFromPage();
+      });
+      clearAllButton.addEventListener("click", function () {
+        checkboxes.forEach(box => box.checked = false);
+        noteFields.forEach(field => field.value = "");
+        collectStateFromPage();
+      });
+
+      applyStateToPage();
+    })();
+  </script>
+</body>
+</html>
